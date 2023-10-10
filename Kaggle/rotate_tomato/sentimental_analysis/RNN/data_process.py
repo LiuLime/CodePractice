@@ -37,7 +37,7 @@ class tokenization():
                 return train_tokz_iter, evl_tokz_iter
         else:
             testset = Dataset.from_pandas(dataset)
-            testset_tokz = testset.map(tokz)
+            testset_tokz = testset.map(tokz, batched=True)
             testset_tokz.set_format('torch')
             i = torch.tensor(range(len(testset_tokz['input_ids'])))
             test_tokz_iter = TensorDataset(i, testset_tokz['input_ids'])

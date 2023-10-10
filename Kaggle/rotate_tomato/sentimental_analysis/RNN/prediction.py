@@ -3,8 +3,8 @@ import torch
 class Prediction():
     def __init__(self):
         pass
-
-    def BiRNN_preds(self, model, test_iter, device):
+    @staticmethod
+    def BiRNN_preds(model, test_iter, device):
 
         model.eval()
         labels=[]

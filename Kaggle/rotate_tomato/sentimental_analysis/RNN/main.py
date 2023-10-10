@@ -32,7 +32,7 @@ def main():
 
     # Path and file configs
     parser.add_argument('--data_path', default=relative_data_path, help='The dataset path.', type=str)
-    parser.add_argument('--model_path', default=relative_output_path, help='The model will be saved to this path.',
+    parser.add_argument('--model_path', default=relative_output_path/'BiRNN_params.pt', help='The model will be saved to this path.',
                         type=str)
     parser.add_argument('--output_path', default=relative_output_path,
                         help='The predictions will be saved to this path.',
