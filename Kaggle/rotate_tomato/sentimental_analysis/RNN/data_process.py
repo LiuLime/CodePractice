@@ -2,6 +2,7 @@ import torch
 from datasets import Dataset
 from torch.utils.data import TensorDataset, DataLoader
 
+
 class tokenization():
 
     def __init__(self, tokenizer, batch_size=24):
@@ -11,7 +12,9 @@ class tokenization():
     def small_set(self, set, seed, range_num):
         return set.shuffle(seed=seed).select(range(range_num))
 
+
     def dataset_iter(self, dataset, content_column, train=True, target_column=None, batch_size = 24):
+
         tokz = lambda x: self.tokenizer(x[content_column], padding='max_length', truncation=True, return_tensors="pt")
 
         if train is True:
@@ -21,9 +24,10 @@ class tokenization():
                 trainset = Dataset.from_pandas(dataset)
                 trainset_tokz = trainset.map(tokz, batched=True).rename_columns({target_column: 'labels'})
                 trainset_tokz.set_format('torch')
-                # print('train_tokz_ids',trainset_tokz['input_ids'].shape)
+                # print('train_tokz_ids',trainset_tokz['input_ids'][0:2])
 
                 trainset_tokz_dict = trainset_tokz.train_test_split(0.2, seed=42)
+
                 train_tokz_iter = TensorDataset(trainset_tokz_dict['train']['input_ids'],
                                                 trainset_tokz_dict['train']['labels'])  # 返回tuple格式的dataset
                 train_tokz_iter = DataLoader(train_tokz_iter, shuffle=True, batch_size=batch_size, )

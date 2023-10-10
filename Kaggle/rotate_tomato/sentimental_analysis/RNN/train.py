@@ -41,7 +41,7 @@ class Train():
                 total_train_loss += loss.item()
                 progress_bar.update(1)
 
-                if (i + 1) % 50 == 0:
+                if (i + 1) % 200 == 0:
                     print('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'.format(epoch + 1, self.epochs,
                                                                              epoch * len(self.train_iter) + i + 1,
                                                                              num_training_steps, loss.item()))
@@ -54,6 +54,9 @@ class Train():
 
             with torch.no_grad():
                 for inputs, labels in self.eval_iter:
+                    inputs = inputs.to(self.device)
+                    labels = labels.to(self.device)
+
                     outputs = model(inputs)
                     loss = criterion(outputs, labels)
                     eval_loss += loss.item()

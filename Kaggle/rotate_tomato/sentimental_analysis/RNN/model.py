@@ -22,12 +22,11 @@ class BiRNN(nn.Module):
 
     def forward(self, x):  # input (batch_size, seq_length)
 
-        embeds = self.embedding(x)
-        # embeds = pack_padded_sequence(embeds, self.vocab_len, batch_first=True)
+        embeds = self.embedding(x)  # (batch_size, seq_length, embedding_dim)
         self.encoder.flatten_parameters()
 
-        out, _ = self.encoder(embeds)
-        # out, _ = pad_packed_sequence(out, batch_first=True)  # -> return(tuple, len_list)
+        out, _ = self.encoder(embeds)  # out(batch_size, seq_length, 2*hidden_dim) torch.Size([24,512,512])
+
         first_timestep = out[:, 0, :]  # fist time step[batch_size, 2*hidden_dim]
         last_timestep = out[:, -1, :]  # last time step[batch_size, 2*hidden_dim]
         out2 = torch.cat((first_timestep, last_timestep), dim=1)
