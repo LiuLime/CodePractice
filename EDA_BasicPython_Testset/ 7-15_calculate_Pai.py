@@ -1,0 +1,32 @@
+# 7-15  计算圆周率
+import math
+
+def an(n):
+    """return pai的值"""
+    # 实现阶乘的两种方式
+    # 1
+    # fenzi = math.factorial(n)
+    # 2
+    fenzi = 1
+    fenmu = 1
+    for i in range(n):
+        fenzi = (i+1)*fenzi
+        fenmu = (2*i+1)*fenmu
+    return fenzi/fenmu
+
+
+shrefold = float(input(""))
+
+
+if shrefold < 1:
+    n = 1
+    sum = 0
+    while True:
+        an = an(n)
+        if an > shrefold:
+            n+=1
+            sum += 2*an
+        else:
+            print("%.6f"%sum)
+            break
+
