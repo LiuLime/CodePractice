@@ -1,0 +1,20 @@
+{
+    "data_path": "../data/rotate_tomato/",
+    "model_path": "../output/rotate_tomato/BiRNN_params.pt",
+    "output_path": "../output/rotate_tomato/",
+    "train_file": "train.tsv",
+    "test_file": "test.tsv",
+    "content": "Phrase",
+    "label_column": "labels",
+    "tokenizer_name": "distilbert-base-uncased",
+    "embedding_dim": 128,
+    "hidden_dim": 256,
+    "output_dim": 5,
+    "num_layers": 2,
+    "lr": 0.0001,
+    "train_batch_size": 64,
+    "test_batch_size": 64,
+    "num_epochs": 10,
+    "gpu": 0,
+    "test": false
+}
