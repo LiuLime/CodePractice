@@ -1,4 +1,4 @@
-
+import json
 import argparse
 from pathlib import Path
 
@@ -50,10 +50,10 @@ def get_args():
     parser.add_argument('--num_epochs', default=config["num_epochs"], help='training epochs number, default=10.', type=int)
 
     # Device config
-    parser.add_argument('--gpu', default=config["gpu"], type=int)
 
     # Mode config
     parser.add_argument('--test', default=config["test"],help='Test on the testset.', action='store_true')
+    parser.add_argument('--run_from_ckp', default=config["run_from_ckp"],help='rerun from checkpoint', action='store_true')
 
     args = parser.parse_args()
 
