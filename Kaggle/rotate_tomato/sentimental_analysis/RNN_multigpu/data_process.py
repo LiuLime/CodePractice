@@ -13,7 +13,7 @@ class tokenization():
         return set.shuffle(seed=seed).select(range(range_num))
 
 
-    def dataset_iter(self, dataset, content_column, train=True, target_column=None, batch_size = 24):
+    def dataset_iter(self, dataset, content_column, train=True, target_column=None, batch_size = 24)->DataLoader:
 
         tokz = lambda x: self.tokenizer(x[content_column], padding='max_length', truncation=True, return_tensors="pt")
 

@@ -1,6 +1,6 @@
 {
     "data_path": "../data/rotate_tomato/",
-    "model_path": "../output/rotate_tomato/BiRNN_params.pt",
+    "model_path": "../output/rotate_tomato/checkpoint.pt",
     "output_path": "../output/rotate_tomato/",
     "train_file": "train.tsv",
     "test_file": "test.tsv",
@@ -15,6 +15,6 @@
     "train_batch_size": 64,
     "test_batch_size": 64,
     "num_epochs": 10,
-    "gpu": 0,
-    "test": false
+    "test": false,
+    "run_from_ckp":false
 }
