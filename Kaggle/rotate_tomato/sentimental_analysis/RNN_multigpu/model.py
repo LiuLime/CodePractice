@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
+# from torch.nn.utils.rnn import pad_packed_sequence, pack_padded_sequence
 
 
 class BiRNN(nn.Module):
@@ -29,10 +29,10 @@ class BiRNN(nn.Module):
 
         first_timestep = out[:, 0, :]  # fist time step[batch_size, 2*hidden_dim]
         last_timestep = out[:, -1, :]  # last time step[batch_size, 2*hidden_dim]
-        out2 = torch.cat((first_timestep, last_timestep), dim=1)
+        out = torch.cat((first_timestep, last_timestep), dim=1)
 
-        out2 = self.decoder(out2)  # (batch_size, 4 * hidden_dim) -> (batch_size, output_dim)
-        soft_out = self.soft(out2)
+        out = self.decoder(out)  # (batch_size, 4 * hidden_dim) -> (batch_size, output_dim)
+        soft_out = self.soft(out)
 
         return soft_out
 
