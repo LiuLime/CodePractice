@@ -4,9 +4,10 @@
     "output_path": "../output/rotate_tomato/",
     "train_file": "train.tsv",
     "test_file": "test.tsv",
-    "content": "Phrase",
+    "train_column": "Phrase",
     "label_column": "labels",
-    "tokenizer_name": "distilbert-base-uncased",
+    "identifier_column":"PhraseId",
+    "tokenizer": "distilbert-base-uncased",
     "embedding_dim": 128,
     "hidden_dim": 256,
     "output_dim": 5,
@@ -15,6 +16,8 @@
     "train_batch_size": 64,
     "test_batch_size": 64,
     "num_epochs": 10,
+    "save_every_n_epoch": 5,
+    "world_size":10,
     "test": false,
     "run_from_ckp":false
 }
