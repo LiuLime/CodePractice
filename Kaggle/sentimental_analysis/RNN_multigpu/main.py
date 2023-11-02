@@ -85,17 +85,17 @@ def main(
         )
         destroy_process_group()
 
-    if rank == 0 and labels is not None and indices is not None:
-        print(f"{len(labels)} prediction finished")
-        pred_reports = {
-            args.identifier_column: identifier,
-            args.label_column: labels,
-            "origin_index": indices,
-        }
-        pd.DataFrame(pred_reports).to_csv(
-            f"{args.output_path}/preds_reports.csv", index=False
-        )
-        print(f"prediction report saved at {args.output_path}")
+        if rank == 0 and labels is not None and indices is not None:
+            print(f"{len(labels)} prediction finished")
+            pred_reports = {
+                args.identifier_column: identifier,
+                args.label_column: labels,
+                "origin_index": indices,
+            }
+            pd.DataFrame(pred_reports).to_csv(
+                f"{args.output_path}/preds_reports.csv", index=False
+            )
+            print(f"prediction report saved at {args.output_path}")
 
 
 if __name__ == "__main__":

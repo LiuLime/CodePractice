@@ -1,0 +1,1 @@
+torchrun  --nproc-per-node=gpu --master-addr=localhost --master-port=12356 main.py --label_column Sentiment --num_epochs 20
