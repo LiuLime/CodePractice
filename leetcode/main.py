@@ -21,19 +21,3 @@ while friday_13th_count < 667:
     current_date += timedelta(days=1)
     # print(current_date, "星期", day_of_week_start + 1)
     # print(current_date)
-
-# year = 2010
-# month = 1
-# day = 1
-#
-#
-# def run_year(year):
-#     return year % 4 == 0
-#
-# while friday_13th_count < 667:
-#     if day ==13 and day_of_week_start == 4:
-#         friday_13th_count += 1
-#     if friday_13th_count == 666:
-#         return year, month, day
-#
-#     if run_year(year):
