@@ -18,8 +18,8 @@ import json
 device = 'cpu'
 path = os.getcwd()
 
-trainset = pd.read_csv(f'{path}/train.tsv', sep='\t', keep_default_na=False)
-testset = pd.read_csv(f'{path}/test.tsv', sep='\t', keep_default_na=False)
+trainset = pd.read_csv(f'/Users/liuyuting/Git_Liu/CodePractice/Kaggle/sentimental_analysis/data/train.tsv', sep='\t', keep_default_na=False)
+testset = pd.read_csv(f'/Users/liuyuting/Git_Liu/CodePractice/Kaggle/sentimental_analysis/data/test.tsv', sep='\t', keep_default_na=False)
 
 tokenizer = DistilBertTokenizer.from_pretrained('distilbert-base-uncased')
 
@@ -48,7 +48,7 @@ from tqdm.auto import tqdm
 
 train_dataloader = DataLoader(small_train_tokz_dict['train'], shuffle=True, batch_size=8)
 eval_dataloader = DataLoader(small_train_tokz_dict['test'], batch_size=8)
-
+#%%
 model = "distilbert-base-uncased"
 model = AutoModelForSequenceClassification.from_pretrained(model, num_labels=5).to(device)
 
