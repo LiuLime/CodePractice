@@ -1,0 +1,17 @@
+dependencies:
+  - matplotlib
+  - numpy
+  - pandas
+  - goatools
+  - networkx
+  - seaborn
+  - scikit-learn
+  - scipy
+  - r-base
+  - r-essentials
+  - r-patchwork
+  - r-pheatmap
+  - r-remotes
+  - r-devtools
+  - r-ComplexHeatmap
+  - r-ComplexUpset
